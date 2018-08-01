@@ -1,0 +1,27 @@
+.btn {
+  margin-left: 10px;
+}
+
+input[type="text"] {
+  width: 250px;
+}
+
+input[type="date"] {
+  width: 200px;
+}
+
+.date-input {
+  width: 200px;
+}
+
+.calendar-icon {
+  margin-left: -10px;
+}
+
+.inline{
+  display: inline;
+}
+
+.inline-flex{
+  display: inline-flex;
+}

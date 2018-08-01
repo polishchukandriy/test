@@ -1,0 +1,38 @@
+<table sortable-table class="table table-bordered" style="width:100%">
+  <thead>
+    <tr (click)="setSortByHandler($event)">
+      <th field-name="id">ID</th>
+      <th field-name="firstName">First Name</th>
+      <th field-name="lastName">Last Name</th>
+      <th field-name="company">Company</th>
+      <th field-name="email">Email</th>
+      <th field-name="registrationDate">Registration Date</th>
+      <th field-name="lastActive">Last Active</th>
+      <th field-name="jobsAvaliable">Jobs Avaliable</th>
+      <th field-name="candidatesViewed">Candidates Viewed</th>
+      <th field-name="candidatesLiked">Candidates Liked</th>
+      <th field-name="candidatesContacted">Candidates Contacted</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <th>{{ user.id }}</th>
+      <th>{{ user.firstName }}</th>
+      <th>{{ user.lastName }}</th>
+      <th>{{ user.company }}</th>
+      <th>{{ user.email }}</th>
+      <th>{{ user.registrationDate | date:'medium' }}</th>
+      <th>{{ user.lastActive | date:'medium' }}</th>
+      <th>{{ user.jobsAvaliable }}</th>
+      <th>{{ user.candidatesViewed }}</th>
+      <th>{{ user.candidatesLiked }}</th>
+      <th>{{ user.candidatesContacted }}</th>
+      <th>
+        <a>View Activities</a>
+        <br>
+        <a>Edit User</a>
+      </th>
+    </tr>
+  </tbody>
+</table>

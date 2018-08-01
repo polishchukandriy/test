@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <h1>Admin Panel</h1>
+  <div class="row">
+    <div class="col-sm-2">
+      <ngb-tabset type="pills" [orientation]="vertical">
+        <ngb-tab title="Users"></ngb-tab>
+        <ngb-tab title="Jobs"></ngb-tab>
+        <ngb-tab title="Candidates"></ngb-tab>
+        <ngb-tab title="Events"></ngb-tab>
+        <ngb-tab title="Partners"></ngb-tab>
+      </ngb-tabset>
+    </div>
+    <div class="col-sm-10 jumbotron light-color">
+        <app-users-header
+        (addUser)="openModalHandler(addUserModal)">
+      </app-users-header>
+
+      <app-users-filter
+        [filter]="filter"
+        (clearFilter)="clearFilterHandler()"
+        (setFilter)="setFilterHandler($event)">
+      </app-users-filter>
+
+      <ngb-pagination
+        *ngIf="isPaginationNeedToDisplay"
+        class="d-flex justify-content-end"
+        (pageChange)="changePageHandler($event)"
+        [collectionSize]="pagesCount * 10"
+        [maxSize]="Resources.usersPerPage"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        [(page)]="currentPage">
+      </ngb-pagination>
+
+      <app-users-table
+        *ngIf="isTableNeedToDisplay"
+        (setSortBy)="setSortByHandler($event)"
+        [users]="users">
+      </app-users-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #addUserModal>
+  <app-add-user-modal
+    (add)="addUserHandler($event)"
+    (close)="closeModalHandler()">
+  </app-add-user-modal>
+</ng-template>

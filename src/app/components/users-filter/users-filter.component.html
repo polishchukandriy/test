@@ -1,0 +1,39 @@
+<form [formGroup]="filterForm">
+  <div class="row">
+    <div class="col-sm-12">
+      <label>First Name</label>
+      <div>
+        <input type="text" class="form-control" placeholder="Search by Name" formControlName="firstName">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-6">
+      <label>Registration Date:</label>
+      <div>
+        <div class="input-group date-input inline-flex">
+          <input id="registrationDateStart" autocomplete="off" class="form-control" placeholder="From" name="dpstart" formControlName="registrationDateStart" ngbDatepicker #dpstart="ngbDatepicker">
+          <div class="input-group-append calendar-icon">
+            <button class="btn btn-outline-secondary" (click)="dpstart.toggle()" type="button">
+            <img src="./assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </button>
+          </div>
+        </div>
+        <p class="inline"> - </p>
+        <div class="input-group date-input inline-flex">
+          <input id="registrationDateEnd" autocomplete="off" class="form-control" placeholder="To" name="dpend" formControlName="registrationDateEnd" ngbDatepicker #dpend="ngbDatepicker">
+          <div class="input-group-append calendar-icon">
+            <button class="btn btn-outline-secondary" (click)="dpend.toggle()" type="button">
+            <img src="./assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <button class="btn btn-primary float-right" [disabled]="!isButtonsEnabled" (click)="clearFiltersHandler()">Clear Filters</button>
+      <button class="btn btn-primary float-right" [disabled]="!isButtonsEnabled" (click)="setFiltersHandler()">Filter</button>
+    </div>
+  </div>
+</form>
